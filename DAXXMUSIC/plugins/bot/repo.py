@@ -14,7 +14,7 @@ lਤਕ‌ੜੇ💪 ਮੂਹਰੇ👉 ਕਦੇ ਜੀ ਜੀ🙏 ਨੀ ❌�
 **"""
   
     await msg.reply_photo(
-        photo="https://te.legra.ph/file/e25a563619c653328830d.jpg",
+      photo="https://te.legra.ph/file/e25a563619c653328830d.jpg",
         caption=start_txt,
         reply_markup=reply_markup
-    )
+                         )
