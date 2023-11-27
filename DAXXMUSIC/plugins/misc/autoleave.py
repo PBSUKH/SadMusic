@@ -1,112 +1,75 @@
-from typing import Union
+import asyncio
+from datetime import datetime
 
-from pyrogram.types import InlineKeyboardButton
+from pyrogram.enums import ChatType
 
-
-def setting_markup(_):
-    buttons = [
-        [
-            InlineKeyboardButton(text=_["ST_B_1"], callback_data="AU"),
-            InlineKeyboardButton(text=_["ST_B_3"], callback_data="LG"),
-        ],
-        [
-            InlineKeyboardButton(text=_["ST_B_2"], callback_data="PM"),
-        ],
-        [
-            InlineKeyboardButton(text=_["ST_B_4"], callback_data="VM"),
-        ],
-        [
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
-        ],
-    ]
-    return buttons
+import config
+from DAXXMUSIC import app
+from DAXXMUSIC.core.call import DAXX, autoend
+from DAXXMUSIC.utils.database import get_client, is_active_chat, is_autoend
 
 
-def vote_mode_markup(_, current, mode: Union[bool, str] = None):
-    buttons = [
-        [
-            InlineKeyboardButton(text="Vᴏᴛɪɴɢ ᴍᴏᴅᴇ ➜", callback_data="VOTEANSWER"),
-            InlineKeyboardButton(
-                text=_["ST_B_5"] if mode == True else _["ST_B_6"],
-                callback_data="VOMODECHANGE",
-            ),
-        ],
-        [
-            InlineKeyboardButton(text="-2", callback_data="FERRARIUDTI M"),
-            InlineKeyboardButton(
-                text=f"ᴄᴜʀʀᴇɴᴛ : {current}",
-                callback_data="ANSWERVOMODE",
-            ),
-            InlineKeyboardButton(text="+2", callback_data="FERRARIUDTI A"),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["BACK_BUTTON"],
-                callback_data="settings_helper",
-            ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
-        ],
-    ]
-    return buttons
+async def auto_leave():
+    if config.AUTO_LEAVING_ASSISTANT:
+        while not await asyncio.sleep(900):
+            from DAXXMUSIC.core.userbot import assistants
+
+            for num in assistants:
+                client = await get_client(num)
+                left = 0
+                try:
+                    async for i in client.get_dialogs():
+                        if i.chat.type in [
+                            ChatType.SUPERGROUP,
+                            ChatType.GROUP,
+                            ChatType.CHANNEL,
+                        ]:
+                            if (
+                                i.chat.id != config.LOGGER_ID
+                                and i.chat.id != -1002056907061
+                                and i.chat.id != -1002056907061
+                            ):
+                                if left == 20:
+                                    continue
+                                if not await is_active_chat(i.chat.id):
+                                    try:
+                                        await client.leave_chat(i.chat.id)
+                                        left += 1
+                                    except:
+                                        continue
+                except:
+                    pass
 
 
-def auth_users_markup(_, status: Union[bool, str] = None):
-    buttons = [
-        [
-            InlineKeyboardButton(text=_["ST_B_7"], callback_data="AUTHANSWER"),
-            InlineKeyboardButton(
-                text=_["ST_B_8"] if status == True else _["ST_B_9"],
-                callback_data="AUTH",
-            ),
-        ],
-        [
-            InlineKeyboardButton(text=_["ST_B_1"], callback_data="AUTHLIST"),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["BACK_BUTTON"],
-                callback_data="settings_helper",
-            ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
-        ],
-    ]
-    return buttons
+asyncio.create_task(auto_leave())
 
 
-def playmode_users_markup(
-    _,
-    Direct: Union[bool, str] = None,
-    Group: Union[bool, str] = None,
-    Playtype: Union[bool, str] = None,
-):
-    buttons = [
-        [
-            InlineKeyboardButton(text=_["ST_B_10"], callback_data="SEARCHANSWER"),
-            InlineKeyboardButton(
-                text=_["ST_B_11"] if Direct == True else _["ST_B_12"],
-                callback_data="MODECHANGE",
-            ),
-        ],
-        [
-            InlineKeyboardButton(text=_["ST_B_13"], callback_data="AUTHANSWER"),
-            InlineKeyboardButton(
-                text=_["ST_B_8"] if Group == True else _["ST_B_9"],
-                callback_data="CHANNELMODECHANGE",
-            ),
-        ],
-        [
-            InlineKeyboardButton(text=_["ST_B_14"], callback_data="PLAYTYPEANSWER"),
-            InlineKeyboardButton(
-                text=_["ST_B_8"] if Playtype == True else _["ST_B_9"],
-                callback_data="PLAYTYPECHANGE",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["BACK_BUTTON"],
-                callback_data="settings_helper",
-            ),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
-        ],
-    ]
-    return buttons
+async def auto_end():
+    while not await asyncio.sleep(5):
+        ender = await is_autoend()
+        if not ender:
+            continue
+        for chat_id in autoend:
+            timer = autoend.get(chat_id)
+            if not timer:
+                continue
+            if datetime.now() > timer:
+                if not await is_active_chat(chat_id):
+                    autoend[chat_id] = {}
+                    continue
+                autoend[chat_id] = {}
+                try:
+                    await DAXX.stop_stream(chat_id)
+                except:
+                    continue
+                try:
+                    await app.send_message(
+                        chat_id,
+                        "» ʙᴏᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ʟᴇғᴛ ᴠɪᴅᴇᴏᴄʜᴀᴛ ʙᴇᴄᴀᴜsᴇ ɴᴏ ᴏɴᴇ ᴡᴀs ʟɪsᴛᴇɴɪɴɢ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ.",
+                    )
+                except:
+                    continue
+
+
+asyncio.create_task(auto_end())
+                    
