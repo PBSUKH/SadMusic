@@ -18,26 +18,7 @@ async def start(_, msg):
         [ 
           InlineKeyboardButton("𝗔𝗗𝗗 𝗠𝗘", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
-        [
-          InlineKeyboardButton("𝗛𝗘𝗟𝗣", url="https://t.me/THE_DRAMA_CLUB_01"),
-          InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/II_BAD_MUNDA_II"),
-          ],
-               
-[
-              
-              InlineKeyboardButton("︎𝗠𝗨𝗦𝗜𝗖", url=f"https://t.me/BAD_BBY_01_BOT"),
-              ],
-              [
-              InlineKeyboardButton("𝗠𝗔𝗡𝗔𝗚𝗘𝗠𝗘𝗡𝗧︎", url=f"https://t.me/BAD_BBY_02_BOT"),
-],
-[
-InlineKeyboardButton("𝗦𝗧𝗥𝗜𝗡𝗚𝗕𝗢𝗧", url=f"https://t.me/BAD_STRING_SESSION_BOT"),
-],
-                         
-[        
-             InlineKeyboardButton("𝗦𝗧𝗥𝗜𝗡𝗚 𝗛𝗔𝗖𝗞︎", url=f"https://t.me/BAD_STRING_SESSION_HACK_BOT"),
-],
-
+        
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
