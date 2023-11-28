@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+import future
 
 import asyncio
 import os
@@ -11,7 +11,7 @@ from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
 
-from DAXXMUSIC import pbot
+from DAXXMUSIC import app
 
 
 def get_file_extension_from_url(url):
@@ -34,7 +34,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@pbot.on_message(filters.command(["vsong", "video"]))
+@app.on_message(filters.command(["yt", "video"]))
 async def ytmusic(client, message: Message):
     urlissed = get_text(message)
     await message.delete()
@@ -106,7 +106,6 @@ async def ytmusic(client, message: Message):
 
 
 __mod_name__ = "Vɪᴅᴇᴏ"
-__help_ = """ 
+__help__ = """ 
 /video to download video song
 /vsong to download video song """
-    
