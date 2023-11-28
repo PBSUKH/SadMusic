@@ -40,7 +40,7 @@ InlineKeyboardButton("𝗦𝗧𝗥𝗜𝗡𝗚𝗕𝗢𝗧", url=f"https://t.me/
               InlineKeyboardButton("𝗦𝗧𝗥𝗜𝗡𝗚 𝗛𝗔𝗖𝗞︎", url=f"BAD_STRING_SESSION_HACK_BOT"),
               ],
 
-]]
+]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
