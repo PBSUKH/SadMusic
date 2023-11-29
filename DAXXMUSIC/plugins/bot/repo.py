@@ -16,17 +16,14 @@ start_txt = """**
 async def start(_, msg):
     buttons = [
         [ 
-          InlineKeyboardButton("🍂𝙰𝚍𝚍 𝚖𝚎🍁", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+          InlineKeyboardButton("🙈𝐀∂∂ 𝐌є🙈", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
 
-        [ 
-          InlineKeyboardButton("🌹𝙾𝚠𝚗𝚎𝚛🥀", url=f"https://t.me/II_BAD_MUNDA_II")
-        ],
         [
            InlineKeyboardButton("🎵 𝐌υѕι¢ 𝐁σт 🎵", url=f"https://t.me/BAD_BBY_01_BOT")
         ],
         [ 
-          InlineKeyboardButton("👻 𝚖𝚊𝚗𝚊𝚐𝚎𝚖𝚎𝚗𝚝 𝚋𝚘𝚝 👻", url=f"https://t.me/BAD_BBY_02_BOT")
+          InlineKeyboardButton("👻 𝐌αиαgємєит 𝐁σт 👻", url=f"https://t.me/BAD_BBY_02_BOT")
         ]
         [
             InlineKeyboardButton("😈 𝐒тяιиg 𝐁σт 😈", url=f"https://t.me/BAD_STRING_SESSION_BOT")
