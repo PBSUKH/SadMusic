@@ -24,7 +24,7 @@ async def start(_, msg):
         ],
         [ 
           InlineKeyboardButton("👻 𝐌αиαgємєит 𝐁σт 👻", url=f"https://t.me/BAD_BBY_02_BOT")
-        ]
+        ],
         [
             InlineKeyboardButton("😈 𝐒тяιиg 𝐁σт 😈", url=f"https://t.me/BAD_STRING_SESSION_BOT")
         ],
