@@ -139,5 +139,3 @@ async def restriction_app(app :app, message):
                        )
                      )
                 await message.reply("demoted !")
-
-
