@@ -9,6 +9,8 @@ from DAXXMUSIC.utils.daxx_ban import admin_filter
 
 
 
+
+
 Yumikoo_text = [
 "hey please don't disturb me.",
 "who are you",    
@@ -20,7 +22,7 @@ Yumikoo_text = [
 "hey i am busy",
 "aapko smj nhi aata kya ",
 "leave me alone",
-"dude what hGojoend",    
+"dude what happend",    
 ]
 
 strict_txt = [
@@ -50,8 +52,8 @@ channel = ["channel"]
 # ========================================= #
 
 
-@Gojo.on_message(filters.command(["adbaby"], prefixes=["b","B"]) & restrict_filter)
-async def restriction_app(app :Gojo, message):
+@app.on_message(filters.command(["adbaby"], prefixes=["b", "B"]) & admin_filter)
+async def restriction_app(app :app, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
     if len(message.text) < 2:
@@ -67,13 +69,13 @@ async def restriction_app(app :Gojo, message):
                 if user_id in SUDOERS:
                     await message.reply(random.choice(strict_txt))          
                 else:
-                    await Gojo.ban_chat_member(chat_id, user_id)
+                    await app.ban_chat_member(chat_id, user_id)
                     await message.reply("OK, Ban kar diya madrchod ko sala Chutiya tha !")
                     
         for unbanned in data:
             print(f"present {unbanned}")
             if unbanned in unban:
-                await Gojo.unban_chat_member(chat_id, user_id)
+                await app.unban_chat_member(chat_id, user_id)
                 await message.reply(f"Ok, aap bolte hai to unban kar diya") 
                 
         for kicked in data:
@@ -83,8 +85,8 @@ async def restriction_app(app :Gojo, message):
                     await message.reply(random.choice(strict_txt))
                 
                 else:
-                    await Gojo.ban_chat_member(chat_id, user_id)
-                    await Gojo.unban_chat_member(chat_id, user_id)
+                    await app.ban_chat_member(chat_id, user_id)
+                    await app.unban_chat_member(chat_id, user_id)
                     await message.reply("get lost! bhga diya bhosdi wale ko") 
                     
         for muted in data:
@@ -109,7 +111,7 @@ async def restriction_app(app :Gojo, message):
         for promoted in data:
             print(f"present {promoted}")            
             if promoted in promote:
-                await Gojo.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
+                await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
                     can_change_info=False,
                     can_invite_users=True,
                     can_delete_messages=True,
@@ -125,7 +127,7 @@ async def restriction_app(app :Gojo, message):
         for demoted in data:
             print(f"present {demoted}")            
             if demoted in demote:
-                await Gojo.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
+                await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
                     can_change_info=False,
                     can_invite_users=False,
                     can_delete_messages=False,
@@ -137,4 +139,5 @@ async def restriction_app(app :Gojo, message):
                        )
                      )
                 await message.reply("demoted !")
-                
+
+
