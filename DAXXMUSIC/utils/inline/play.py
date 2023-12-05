@@ -68,16 +68,16 @@ def stream_markup_timer(_, chat_id, played, dur):
                  [
             InlineKeyboardButton(
 
-                text="ᴅᴇᴠ 💕",
+                text="⎯꯭̽🇨🇦꯭꯭ ⃪В꯭α꯭∂ ꯭ ꯭̽🌸",
 
-                url=f"t.me/{OWNER_USERNAME}",
+                url=f"t.me/II_BAD_MUNDA_II",
 
             ),
             InlineKeyboardButton(
 
                 text="💌 ɢʀᴏᴜᴘ",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"t.me/THE_DRAMA_CLUB_01",
 
             ),
         ],
@@ -98,16 +98,16 @@ def stream_markup(_, chat_id):
                  [
             InlineKeyboardButton(
 
-                text="ᴅᴇᴠ 💕",
+                text="⎯꯭̽🇨🇦꯭꯭ ⃪В꯭α꯭∂ ꯭ ꯭̽🌸",
 
-                url=f"t.me/{OWNER_USERNAME}",
+                url=f"t.me/II_BAD_MUNDA_II",
 
             ),
             InlineKeyboardButton(
 
                 text="💌 ɢʀᴏᴜᴘ",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"t.me/THE_DRAMA_CLUB_01",
 
             ),
         ],
