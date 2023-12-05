@@ -171,7 +171,7 @@ async def mentionall(client, message):
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ""
-    async for usr in client.iter_chat_members(chat_id):
+    async for usr in client.iter_chat_members(-1001959689005):
         if not chat_id in spam_chats:
             break
         if usr.user.is_bot:
