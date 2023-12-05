@@ -1,12 +1,10 @@
 import requests
 import random
-from Powers.bot_class import Gojo
-from Powers.supports import get_support_staff
+from DAXXMUSIC import app, userbot
+from DAXXMUSIC.misc import SUDOERS
 from pyrogram import * 
 from pyrogram.types import *
-from Powers.utils.custom_filters import restrict_filter
-
-SUDOERS = get_support_staff("sudo", "dev")
+from DAXXMUSIC.utils.daxx_ban import admin_filter
 
 
 
