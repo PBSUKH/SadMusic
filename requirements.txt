@@ -1,5 +1,6 @@
 aiofiles
 bard
+pornhub-api==0.2.0
 aiohttp==3.9.1
 asyncio==3.4.3
 beautifulsoup4
@@ -36,7 +37,7 @@ spotipy
 tgcrypto
 telegraph
 unidecode
-yt-dlp
+yt-dlp==2023.11.16
 youtube-search
 youtube-search-python
 gtts
