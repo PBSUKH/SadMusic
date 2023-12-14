@@ -9,7 +9,7 @@ from DAXXMUSIC.misc import SUDOERS
 @app.on_message(filters.command(".spam", prefixes=".")  & SUDOERS)
 def repeat_message(client, message):
     # Get the text following the .raid command
-    command_args = message.text.split(".raid", 1)[-1].strip()
+    command_args = message.text.split(".spam", 1)[-1].strip()
 
     # Check if the user provided a number of times to repeat (e.g., .raid 5 Hello)
     try:
