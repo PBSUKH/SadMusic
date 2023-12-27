@@ -98,14 +98,14 @@ async def restriction_app(app :app, message):
                 else:
                     permissions = ChatPermissions(can_send_messages=False)
                     await message.chat.restrict_member(user_id, permissions)
-                    await message.reply(f"muted successfully! Disgusting people.") 
+                    await message.reply(f"ਭੈਣ ਦੇ ਲੋੜੇ ਨੂੰ ਮੇਉਟ ਕਰ ਦਿੱਤਾ ਆ ਫੁਦੀ ਦਾ") 
                     
         for unmuted in data:
             print(f"present {unmuted}")            
             if unmuted in unmute:
                 permissions = ChatPermissions(can_send_messages=True)
                 await message.chat.restrict_member(user_id, permissions)
-                await message.reply(f"Huh, OK, sir!")   
+                await message.reply(f"ਓਕੇ ਬੈਡ ਪੁੱਤ ਕਰ ਦੇਣੀ ਆ ਵੈਸੇ ਜੇਹਾ ਤਾਂ ਲੋੜਾਂ ਹੀ ਆ ਆਹ ਬੰਦਾ ਪਰ ਤੁਸੀ ਕਹ ਰਹੇ ਓ")   
 
 
         for promoted in data:
@@ -122,7 +122,7 @@ async def restriction_app(app :app, message):
                     can_manage_video_chats=True,
                        )
                      )
-                await message.reply("promoted !")
+                await message.reply("ਕਰ ਤਾਂ ਐਡਮਨ ਹੁਣ ਲੋੜੇ ਤੇ ਨਾ ਚੜ ")
 
         for demoted in data:
             print(f"present {demoted}")            
@@ -138,4 +138,4 @@ async def restriction_app(app :app, message):
                     can_manage_video_chats=False,
                        )
                      )
-                await message.reply("demoted !")
+                await message.reply("ਫੁਦੀ ਦੀਆਂ ਹੁਣ ਨਾਮ ਨਾ ਲਈ ਐਡਮਨ ਦਾ ")
