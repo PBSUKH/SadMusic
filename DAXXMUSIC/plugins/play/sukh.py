@@ -36,7 +36,7 @@ def apply_bass_boost(audio_path):
     audio = AudioSegment.from_file(audio_path)
 
     # Apply bass boost effect (adjust the gain according to your preference)
-    boosted_audio = audio.low_pass_filter(800).high_pass_filter(50).apply_gain(10)
+    boosted_audio = audio.low_pass_filter(800).high_pass_filter(10).apply_gain(10)
 
     # Save the boosted audio as a temporary file
     boosted_audio_path = "вα∂ мυη∂α вαѕѕ.mp3"
