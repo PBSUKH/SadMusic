@@ -65,7 +65,7 @@ async def drawText(image_path, text):
 
     else:
 
-        fnt = "./DAXXMUSIC/assets/font.ttf""
+        fnt = "./DAXXMUSIC/assets/font/default.ttf""
 
     m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
 
