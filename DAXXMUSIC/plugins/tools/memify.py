@@ -9,7 +9,8 @@ from io import BytesIO
 from pyrogram.raw.functions.messages import GetStickerSet
 
 TEMP_DOWNLOAD_DIRECTORY = []
-@register(pattern="^/mmf ?(.*)")
+
+@app.on_message(filters.command("mmf"))
 async def handler(event):
     if event.fwd_from:
         return
