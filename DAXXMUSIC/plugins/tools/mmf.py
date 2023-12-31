@@ -10,7 +10,7 @@ from DAXXMUSIC import app
 
 
 @app.on_message(filters.command("mmf"))
-@register(pattern="^/mmf ?(.*)")
+@register(pattern=("mmf")
 async def handler(event):
 
     if event.fwd_from:
