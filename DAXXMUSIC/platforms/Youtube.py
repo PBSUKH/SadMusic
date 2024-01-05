@@ -243,7 +243,7 @@ class YouTubeAPI:
 
         def audio_dl():
             ydl_optssx = {
-                "format": "bestaudio/best",
+                "format": "bestaudio[ext=m4a]",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
                 "nocheckcertificate": True,
@@ -344,4 +344,3 @@ class YouTubeAPI:
             direct = True
             downloaded_file = await loop.run_in_executor(None, audio_dl)
         return downloaded_file, direct
-                    
