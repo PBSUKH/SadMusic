@@ -51,3 +51,5 @@ class DAXX(Client):
 
     async def stop(self):
         await super().stop()
+
+BOT_USERNAME = "@{self.username}"
