@@ -139,7 +139,7 @@ TAGMES = [ " **𝐇𝐞𝐲 𝐁𝐚𝐛𝐲 𝐊𝐚𝐡𝐚 𝐇𝐨🥱** ",
            " **𝐌𝐲 𝐎𝐰𝐧𝐞𝐫 𝐤𝐢 𝐜𝐮𝐭𝐞 𝐜 𝐰𝐢𝐟𝐞 [ @Sukh_di_bebo098 ]🥰** "
          ]
 
-@app.on_message(filters.command(["tagall", "spam", "tagmember", "utag", "stag", "hftag", "bstag", "eftag", "tag", "etag", "utag", "atag"], prefixes=["/", "@", "#"]))
+@app.on_message(filters.command(["tagmember"], prefixes=["/", "@", "#"]))
 async def mentionall(client, message):
     chat_id = message.chat.id
     if message.chat.type == ChatType.PRIVATE:
